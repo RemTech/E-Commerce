@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Agu+Display:MORF@60&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Wancho&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="https://icones.pro/wp-content/uploads/2022/07/icone-angulaire-bleu.png" image/x-icon>
-    <link rel="stylesheet" href="dashboard.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agu+Display:MORF@60&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Wancho&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sixtyfour+Convergence&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon"
+    href="https://icones.pro/wp-content/uploads/2022/07/icone-angulaire-bleu.png"
+    image/x-icon>
+    <link rel="stylesheet" href="dashboard.css" />
     <title>E Commerce</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="headerLogo">
+      <!-- <div class="headerLogo">
             <h1>E-COMMERCE</h1>
         </div>
         <div class="siteIcons">
@@ -23,7 +28,56 @@
                     <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="github" class="githubIcon">
                 </a>
             </div>
+        </div> -->
+
+      <img src="Icons/logo.png" alt="" class="logo" />
+      <details open>
+        <summary>Navbar</summary>
+        <ul>
+            <li><a href="#">item 1</a></li>
+            <li><a href="#">item 2</a></li>
+            <li><a href="#">item 3</a></li>
+            <li><a href="#">item 4</a></li>
+        </ul>
+      </details>
+      <nav>
+        <ul>
+          <li><a href="#" class="current">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <form id="search-form">
+        <div id="search-icon">
+          <svg
+            class="icon-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.3-4.3"></path>
+          </svg>
         </div>
+        <input
+          id="search-input"
+          type="text"
+          spellcheck="false"
+          name="text"
+          placeholder="Search..."
+        />
+        <button id="clear-button" aria-label="Clear input button" type="reset">
+          <svg
+            class="icon-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 6L6 18"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </button>
+      </form>
+      <span class="signUpBtn">SignUp</span>
     </header>
-</body>
+  </body>
 </html>
