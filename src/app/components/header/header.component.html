@@ -1,52 +1,40 @@
 <header>
-  <fa-icon class="fa-xl" [icon]="home"></fa-icon>
   <details true>
-    <summary>Navbar</summary>
+    <summary><fa-icon class="fa-md" [icon]="home"></fa-icon></summary>
     <ul>
-        <li><a href="#">item 1</a></li>
-        <li><a href="#">item 2</a></li>
-        <li><a href="#">item 3</a></li>
-        <li><a href="#">item 4</a></li>
+        <li><a href="#">Microsoft</a></li>
+        <li><a href="#">Google</a></li>
+        <li><a href="#">Amazon</a></li>
+        <li><a href="#">Others</a></li>
     </ul>
   </details>
   <nav>
     <ul>
-      <li><a href="#" class="current">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#" class="current">Dashboard</a></li>
+      <li><a href="#" class="current">Features</a></li>
+      <li><a href="#" class="current">Pricing</a></li>
+      <li><a href="#" class="current">About</a></li>
     </ul>
   </nav>
   <form id="search-form">
     <div id="search-icon">
-      <fa-icon class="fa-xl" [icon]="magnifier"></fa-icon>
-      <!-- <svg
-        class="icon-svg"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      > 
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="M21 21l-4.3-4.3"></path>
-      </svg> -->
+      <fa-icon class="fa-xl" [icon]="magnifier" (click)="searchApplication(search)" ></fa-icon>
     </div>
     <input
       id="search-input"
+      tabindex="0"
       type="text"
       spellcheck="false"
-      name="text"
-      placeholder="Search..."
-    />
+      name="search"
+      placeholder="search... "
+    [(ngModel)]="search"
+    (keydown.enter)="onKeydownFunction($event,search)"/>
     <button id="clear-button" aria-label="Clear input button" type="reset">
       <fa-icon class="fa-xl" [icon]=cancel></fa-icon>
-      <!-- <svg
-        class="icon-svg"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M18 6L6 18"></path>
-        <path d="M6 6l12 12"></path>
-      </svg> -->
     </button>
   </form>
-  <span class="signUpBtn">SignUp</span>
+   <button type="submit" (click)="searchApplication(search)">
+    <span class="signUpBtn">SignUp</span>
+    </button>
+    {{search | json}}
 </header>
