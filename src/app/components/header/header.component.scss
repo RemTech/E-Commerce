@@ -8,6 +8,7 @@ header {
   padding-inline: max(25px, 5%);
   gap: 15px;
   padding: 20px;
+  box-shadow: 0px 0px 10px black;
 }
 
 header .logo {
@@ -58,6 +59,7 @@ header details {
     &:hover {
       color: #00f;
     }
+    
   }
 }
 
@@ -82,8 +84,28 @@ header nav {
   }
 
   & a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
+    position: relative; // Ensure the link is positioned relative to its normal position
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--textColor1); // Color of the underline
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      border-radius: 20px;
+    }
+
+    &:hover::after {
+      visibility: visible;
+      width: 100%;
+    }
+
   }
 
   & a.current {
@@ -96,23 +118,20 @@ header nav {
   border: 1px solid;
   padding: 10px 25px;
   border-radius: 5px;
-  color: rgb(159, 157, 157);
+  color: var(--textColor1);;
   vertical-align: 0px;
   margin-right: 17px;
-
-  box-shadow:
-    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  transition: ease-out 0.5s;
+  border: 1px solid var(--textColor1);
+  box-shadow: inset 0 0 0 0 var(--textColor1);
 
   &:hover {
-    color: var(--textColor1);
-    cursor: pointer;
+    color: var(--headerBgcolor);
+    box-shadow: inset 0 -100px 0 0 var(--textColor1);
   }
 
   &:active {
-    box-shadow:
-      inset -2px -2px 3px rgba(255, 255, 255, 0.6),
-      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
   }
 }
 
