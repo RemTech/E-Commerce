@@ -1,0 +1,283 @@
+// =====================================================
+// VARIABLES (Themes)
+// =====================================================
+
+// Light mode defaults
+$bgColor-light: #fff;
+$textColor-light: #000;
+$invertBtn-light: 1;
+
+// Dark mode values
+$bgColor-dark: #0d0d2b;
+$textColor-dark: #fff;
+$invertBtn-dark: 0;
+
+// Set default theme variables (Light by default)
+$bgColor: $bgColor-light;
+$textColor: $textColor-light;
+$invertBtn: $invertBtn-light;
+
+// =====================================================
+// GLOBAL STYLES & RESET
+// =====================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: $textColor;
+  background-color: $bgColor;
+}
+
+// Prevent text selection in buttons/inputs
+button,
+button *,
+input {
+  user-select: none;
+}
+
+// =====================================================
+// COMPONENT: CONTAINER & SECTIONS
+// =====================================================
+
+.container {
+  display: flex;
+  min-height: 100vh;
+
+  // LEFT SECTION
+  .left-section {
+    flex: 1;
+    // Fixed gradient background (not using theme variables)
+    background: radial-gradient(circle at 20% 20%, #0c0c4f, #0d0d2b 50%, #0c0c27 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 500px;
+
+    .marketing-text {
+      h1 {
+        color: #fff;
+        font-size: 2rem;
+        max-width: 450px;
+        line-height: 1.4;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // RIGHT SECTION
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    .form-container {
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $textColor;
+        text-align: center;
+      }
+
+      // SOCIAL BUTTONS
+      .social-btn {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: $bgColor;
+        color: $textColor;
+        box-shadow: 0 0 0 1px #a3a3a3;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: 1.7rem;
+          width: auto;
+        }
+
+        // For GitHub & Apple buttons, invert their icons based on theme
+        &.github-btn,
+        &.apple-btn {
+          img {
+            filter: invert($invertBtn);
+          }
+        }
+      }
+
+      // "OR" separator
+      .or {
+        position: relative;
+        margin: 1rem 0;
+
+        > div {
+          height: 3px;
+          background: #a3a3a3;
+          border-radius: 10px;
+        }
+        > span {
+          font-size: 1rem;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: $bgColor;
+          padding: 0 0.5rem;
+        }
+      }
+
+      // INPUT GROUP
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        input {
+          padding: 0.75rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          background: $bgColor;
+          color: $textColor;
+        }
+      }
+
+      // CONTINUE BUTTON
+      .continue-btn {
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+        width: 100%;
+        background-color: #526eff;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        font-weight: 100; // Note: duplicate font-weight (600 then 100)—adjust as needed.
+        cursor: pointer;
+
+        &:disabled {
+          background-color: #e9edf3;
+          color: #000;
+        }
+      }
+
+      // EXTRA LINKS
+      .extra-links {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+        text-align: center;
+
+        a {
+          color: #526eff;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        p {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+// =====================================================
+// MEDIA QUERIES: RESPONSIVE ADJUSTMENTS
+// =====================================================
+
+@media all and (max-width: 800px) {
+  html {
+    font-size: 18px;
+  }
+  .container {
+    .left-section {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  html {
+    font-size: 16px;
+  }
+  .container {
+    .right-section {
+      padding: 1rem;
+    }
+  }
+}
+
+// =====================================================
+// DARK MODE OVERRIDES
+// =====================================================
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: $bgColor-dark;
+    color: $textColor-dark;
+  }
+  .container {
+    .form-container {
+      h2 {
+        color: $textColor-dark;
+      }
+
+      .social-btn {
+        background-color: $bgColor-dark;
+        color: $textColor-dark;
+
+        // Ensure the separator text and line use the dark background too
+        > span,
+        > div {
+          background-color: $bgColor-dark;
+        }
+        &.github-btn,
+        &.apple-btn {
+          img {
+            filter: invert($invertBtn-dark);
+          }
+        }
+      }
+
+      .or {
+        > span {
+          background-color: $bgColor-dark;
+        }
+      }
+
+      .input-group {
+        input {
+          background: $bgColor-dark;
+          color: $textColor-dark;
+        }
+      }
+    }
+  }
+}
