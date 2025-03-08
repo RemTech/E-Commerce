@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f2f2f2;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Container holds left and right panels */
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Left Panel */
+  .left-panel {
+    max-width: 450px;
+    flex: 1;
+    color: #fff;
+    padding: 80px 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: url(https://www.qtum.org/png/bridge-event-header-bg.png) no-repeat center center;
+    background-size: cover;
+  }
+  
+  .left-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    max-width: 350px;
+    line-height: 1.4;
+    font-weight: 100;
+  }
+  
+  .testimonial {
+    background: #1A1F36;
+    max-width: 350px;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    height: 200px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    border-radius: 10px;
+  }
+  
+  .testimonial p {
+    font-style: italic;
+    font-size: 1.5rem;
+  }
+  
+  .author {
+    margin-top: 1.5rem;
+    font-style: normal;
+  }
+  
+  .author strong {
+    font-weight: bold;
+  }
+  
+  /* Right Panel */
+  .right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  
+  .signup-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border-radius: 6px;
+  }
+  
+  .signup-container h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* Social Buttons */
+  .social-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    opacity: 1;
+  }
+  /*Social buttons hover status*/
+  .social-btn:hover {
+    opacity: 0.8;
+  }
+  .social-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+  .google-btn, .apple-btn, .github-btn {
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 1px solid #ccc;
+
+  } 
+  .or {
+    position: relative;
+    margin: 1rem 0;
+ 
+    & > hr {
+       height: 1px;
+       background: #a3a3a3;
+       border-radius: 10px;
+       margin-top: 1rem;
+    }
+    & > span {
+       font-size: 1rem;
+       text-align: center;
+       position: absolute;
+       top: 0;
+       left: 50%;
+       translate: -50% -50%;
+       background-color: #fff;
+       color: #797171a3;
+       padding: 0 .5rem;
+       
+    }
+ } 
+  /* Sign Up Form Fields */
+  .signup-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .create-account-btn {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #4c84ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Hover states for buttons */
+  .create-account-btn:hover {
+    opacity: 0.9;
+  }
+  

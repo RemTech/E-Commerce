@@ -12,3 +12,8 @@
 //         measurementId: process.env[""]
 //     }
 // }
+
+
+export const environment = {
+    production: false
+};

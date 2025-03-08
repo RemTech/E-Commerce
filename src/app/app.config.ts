@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => {
       //const connector: DataConnect = getDataConnect(connectorConfig);
       //connectDataConnectEmulator(connector, 'localhost', 9390);
-      return initializeApp()
+      return initializeApp();
     }),
     provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService,
     provideFirestore(() => {
