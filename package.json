@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 9020 --open",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build --configuration development",
+    "watch": "ng build --watch --configuration production",
     "test": "ng test",
     "serve:ssr:e-commerce": "node dist/e-commerce/server/server.mjs"
   },
