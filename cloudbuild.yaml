@@ -6,16 +6,16 @@ steps:
     args: ['install']
     volumes: # Add volumes for persisten caching
       - name: 'node_modules'
-        path: /app/node_modules
+        path: '/app/node_modules'
  
-  # Install Firebase CLI
-  - name: 'Install firebase-cli'
-    id: install-firebase-cli
-    entrypoint: 'sh'
-    args:
-      - '-c'
-      - |
-        npm install -g firebase-tools@13.23.0
+  # # Install Firebase CLI
+  # - name: 'Install firebase-cli'
+  #   id: install-firebase-cli
+  #   entrypoint: 'sh'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       npm install -g firebase-tools@13.23.0
 
   # 2. Build the Application
   - name: 'node:18'
@@ -26,7 +26,7 @@ steps:
     #   - NODE_ENV=${_NODE_ENV:-production} # Environment variable for build
     volumes: # Persisted caching
       - name: 'node_modules'
-        path: /app/node_modules
+        path: '/app/node_modules'
 
   # 3. Deploy to Firebase Hosting
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -38,11 +38,11 @@ steps:
         gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
 
-    # volumes:
-    #   - name: 'secrets'
-    #     mountPath: /secrets
+    volumes:
+      - name: 'secrets'
+        path: '/secrets'
 
-  # 4. Run Tests (Optional, but HIGHLY recommended)
+  #4. Run Tests (Optional, but HIGHLY recommended)
   # - name: 'node:18'
   #   id: test
   #   entrypoint: 'npm'
@@ -53,9 +53,9 @@ steps:
 
 volumes:
   - name: 'secrets'
-    emptyDir: {}
+    path: '/secrets'
   - name: 'node_modules' # Defines node_modules caching
-    emptyDir: {}
+    path: '/app/node_modules'
 
 availableSecrets:
   secretManager:
