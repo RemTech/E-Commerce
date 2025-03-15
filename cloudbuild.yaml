@@ -38,9 +38,9 @@ steps:
         gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
 
-    volumes:
-      - name: 'secrets'
-        mountPath: /secrets
+    # volumes:
+    #   - name: 'secrets'
+    #     mountPath: /secrets
 
   # 4. Run Tests (Optional, but HIGHLY recommended)
   # - name: 'node:18'
