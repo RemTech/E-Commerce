@@ -34,4 +34,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_REMTECH_PROJECT }}
           channelId: live
-          projectId: remtech
+          projectId: remtech-project
