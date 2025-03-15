@@ -27,7 +27,7 @@ jobs:
       - name: Build Angular app
         run: |
         
-            ng build --configuration production
+            npm run build
             
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
