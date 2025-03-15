@@ -18,8 +18,10 @@
 #         with:
 #           node-version: 20.18.2 # Or your preferred Node.js version
 
+
 #       - name: Install dependencies
 #         run: npm i && npm ci clean-install
+
 
 #       - name: Install Firebase CLI v13.23.0
 #         run: npm install -g firebase-tools@13.23.0  # Replace with your desired version
