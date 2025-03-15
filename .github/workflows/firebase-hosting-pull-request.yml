@@ -30,4 +30,4 @@ jobs:
 
       - name: Build Angular app
         run: |
-            ng build --configuration production
+            npm run build
