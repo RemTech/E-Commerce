@@ -16,8 +16,8 @@ steps:
     entrypoint: 'npm'
     args: ['run', 'build']
     # volumes: # Persisted caching
-  - name: 'node_modules'
-    path: '/app/node_modules'
+  # - name: 'node_modules'
+  #   path: '/app/node_modules'
 
   # 4. Deploy to Firebase Hosting
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -28,9 +28,9 @@ steps:
       - |
         gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
-    volumes:
-      - name: 'secrets'
-        path: '/secrets'
+    # volumes:
+    #   - name: 'secrets'
+    #     path: '/secrets'
 
   # 5. Run Tests (Optional, but HIGHLY recommended)
   - name: 'node:18'
@@ -38,14 +38,14 @@ steps:
     entrypoint: 'npm'
     args: ['run', 'test']
     # volumes: # Persisted caching
-  - name: 'node_modules'
-    path: '/app/node_modules'
+  # - name: 'node_modules'
+  #   path: '/app/node_modules'
 
 # volumes:
-  - name: 'secrets'
-    path: '/secrets'
-  - name: 'node_modules' # Defines node_modules caching
-    path: '/app/node_modules'
+  # - name: 'secrets'
+  #   path: '/secrets'
+  # - name: 'node_modules' # Defines node_modules caching
+  #   path: '/app/node_modules'
 
 availableSecrets:
   secretManager:
