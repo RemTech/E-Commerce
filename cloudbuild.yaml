@@ -8,16 +8,6 @@ steps:
     #   - name: 'node_modules'
     #     path: '/app/node_modules'
 
-
-
-  # 3. Build the Application
-    args: ['install','ci']
-    # volumes: # Add volumes for persistent caching
-    #   - name: 'node_modules'
-    #     path: '/app/node_modules'
-
-
-
   # 3. Build the Application
   - name: 'node:18'
     id: build
@@ -28,18 +18,17 @@ steps:
   #   path: '/app/node_modules'
 
   # 4. Deploy to Firebase Hosting
-  # 4. Deploy to Firebase Hosting
   - name: 'gcr.io/cloud-builders/gcloud'
     id: deploy
     entrypoint: 'sh'
     args:
       - '-c'
       - |
-        gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
+        
         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
     # volumes:
     #   - name: 'secrets'
-    #     path: '/secrets'
+    #     path: '/secrets' gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
 
   # 5. Run Tests (Optional, but HIGHLY recommended)
   - name: 'node:18'
@@ -56,21 +45,16 @@ steps:
   # - name: 'node_modules' # Defines node_modules caching
   #   path: '/app/node_modules'
 
-availableSecrets:
-  secretManager:
-  firebase-service-account-key:
-  versionName: projects/169956240449/secrets/firebase-app-hosting-github-oauth-github-oauthtoken-7f43ff/versions/latest
-  firebase-service-account-key:
-  versionName: projects/169956240449/secrets/firebase-app-hosting-github-oauth-github-oauthtoken-7f43ff/versions/latest
+# availableSecrets:
+#   secretManager:
+#   firebase-service-account-key:
+#   versionName: projects/169956240449/secrets/firebase-app-hosting-github-oauth-github-oauthtoken-7f43ff/versions/latest
 
 substitutions:
   _FIREBASE_CHANNEL: 'live'       # Default: Deploy to the 'live' channel
   _PROJECT_ID: 'remtech-project'  # Default: Project ID for Firebase Hosting
-  _NODE_ENV: 'production'         # Default: Set Node environment to production
-  _NODE_ENV: 'production'         # Default: Set Node environment to production
+  _NODE_ENV: 'production'         # Default: Set Node environment to production        # Default: Set Node environment to production
 
 options:
   substitutionOption: ALLOW_LOOSE # Required for using custom substitution variables
-  dynamicSubstitutions: true      # Use dynamic build parameters
-
   dynamicSubstitutions: true      # Use dynamic build parameters
