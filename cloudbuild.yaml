@@ -1,40 +1,45 @@
 steps:
   # 1. Install Dependencies
-  - name: 'node:18'
-    id: install
-    entrypoint: 'npm'
-    args: ['install','ci']
+- name: 'node:20.19.0'
+  id: install
+  entrypoint: 'npm'
+  args: ['install','ci']
     # volumes: # Add volumes for persistent caching
     #   - name: 'node_modules'
     #     path: '/app/node_modules'
 
   # 3. Build the Application
-  - name: 'node:18'
-    id: build
-    entrypoint: 'npm'
-    args: ['run', 'build']
+- name: 'node:20.19.0'
+  id: build
+  entrypoint: 'npm'
+  args: ['run', 'build']
     # volumes: # Persisted caching
   # - name: 'node_modules'
   #   path: '/app/node_modules'
 
-  # 4. Deploy to Firebase Hosting
-  - name: 'gcr.io/cloud-builders/gcloud'
-    id: deploy
-    entrypoint: 'sh'
-    args:
-      - '-c'
-      - |
+#   # 4. Deploy to Firebase Hosting
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   id: deploy
+#   entrypoint: 'sh'
+#   args:
+#       - '-c'
+#       - |
         
-        firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
+#         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
+# # [START cloudbuild_firebase_deploy]
+
+# - name: gcr.io/$PROJECT_ID/firebase
+#   args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
+# [END cloudbuild_firebase_deploy]
     # volumes:
     #   - name: 'secrets'
     #     path: '/secrets' gcloud auth activate-service-account --key-file=/secrets/firebase-service-account-key.json &&
 
   # 5. Run Tests (Optional, but HIGHLY recommended)
-  - name: 'node:18'
-    id: test
-    entrypoint: 'npm'
-    args: ['run', 'test']
+- name: 'node:20.19.0'
+  id: test
+  entrypoint: 'npm'
+  args: ['run', 'test']
     # volumes: # Persisted caching
   # - name: 'node_modules'
   #   path: '/app/node_modules'
@@ -53,7 +58,7 @@ steps:
 substitutions:
   _FIREBASE_CHANNEL: 'live'       # Default: Deploy to the 'live' channel
   _PROJECT_ID: 'remtech-project'  # Default: Project ID for Firebase Hosting
-  _NODE_ENV: 'production'         # Default: Set Node environment to production        # Default: Set Node environment to production
+  # _NODE_ENV: 'production'         # Default: Set Node environment to production        # Default: Set Node environment to production
 
 options:
   substitutionOption: ALLOW_LOOSE # Required for using custom substitution variables
