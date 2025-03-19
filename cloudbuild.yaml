@@ -42,7 +42,7 @@ steps:
   args: ['run', 'test']
     # volumes: # Persisted caching
   # - name: 'node_modules'
-  #   path: '/app/node_modules'
+  #   path: '/app/node_modules'''
 
 # volumes:
   # - name: 'secrets'
