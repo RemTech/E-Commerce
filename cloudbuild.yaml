@@ -18,14 +18,14 @@ steps:
   #   path: '/app/node_modules'
 
 #   # 4. Deploy to Firebase Hosting
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   id: deploy
-#   entrypoint: 'sh'
-#   args:
-#       - '-c'
-#       - |
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: deploy
+  entrypoint: 'sh'
+  args:
+      - '-c'
+      - |
         
-#         firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
+        firebase deploy --project=${_PROJECT_ID:-remtech-project} --only hosting --channel=${_FIREBASE_CHANNEL:-live}
 # # [START cloudbuild_firebase_deploy]
 
 # - name: gcr.io/$PROJECT_ID/firebase
