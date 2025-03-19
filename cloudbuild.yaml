@@ -3,7 +3,7 @@ steps:
 - name: 'node:20.19.0'
   id: install
   entrypoint: 'npm'
-  args: ['install','ci']
+  args: ['install']
     # volumes: # Add volumes for persistent caching
     #   - name: 'node_modules'
     #     path: '/app/node_modules'
