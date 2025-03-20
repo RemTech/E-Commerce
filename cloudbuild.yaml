@@ -5,30 +5,19 @@ steps:
   entrypoint: 'npm'
   args: ['install']
 
-
   # 3. Build the Application
 - name: 'node:20.19.0'
   id: build
   entrypoint: 'npm'
   args: ['run', 'build']
 
-
-   # 4. Deploy to Firebase Hosting
-# - name: gcr.io/$PROJECT_ID/firebase
-#   args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
-
-
-    
   # 5. Run Tests (Optional, but HIGHLY recommended)
-
 # - name: 'node:20.19.0'
 #   id: test
 #   entrypoint: 'npm'
 #   args: ['run', 'test']
-    # volumes: # Persisted caching
-  # - name: 'node_modules'
-  #   path: '/app/node_modules'''
 
 options:
   substitutionOption: ALLOW_LOOSE # Required for using custom substitution variables
   dynamicSubstitutions: true      # Use dynamic build parameters
+  logging: CLOUD_LOGGING_ONLY
