@@ -9,18 +9,8 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        title: 'BizFushion',
+        title: 'home page',
         loadComponent: () => import('./components/home/home.component').then(h=>h.HomeComponent)
-    },
-    {
-        path: 'signup',
-        title: 'BizFushion | Sign Up',
-        loadComponent: () => import('./components/sign-up/sign-up.component').then(s=>s.SignUpComponent)
-    },
-    {
-        path: 'login',
-        title: 'BizFushion | Log In',
-        loadComponent: () => import('./components/login/login.component').then(l=>l.LoginComponent)
     },
     {
         path: 'admin',

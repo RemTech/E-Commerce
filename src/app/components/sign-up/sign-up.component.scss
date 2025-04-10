@@ -11,11 +11,6 @@
     color: #fff;
     padding: 80px 0 0 50px;
     display: flex;
-
-    height: 100vh;
-    flex-direction: column;
-    gap: 30px;
-    background: url(https://ionic.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg-ionic.c514ea5f.png&w=1080&q=75) no-repeat center center;
     flex-direction: column;
     justify-content: flex-start;
     background: url(https://www.qtum.org/png/bridge-event-header-bg.png) no-repeat center center;
@@ -36,14 +31,6 @@
   }
   .content {
     font-style: italic;
-    height: 100%;
-    font-size: 25px;
-    // line-height: 25px;
-    font-family: "Noto Serif", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-variation-settings:
-      "wdth" 100;
   }
   
   /* Right Panel */
