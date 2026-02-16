@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+.aboutcontainerpage {
+    display: flex;
+   //ustify-content: center;
+    height: 900rem;
+    object-fit: cover;
+    padding: 0 10em;
+    // background-color: rgba(0, 255, 0, 0.5);//change
+
+}
+.home {
+    padding-top: 4em;
+    margin: 0;
+    padding: 5px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    
+    h1 {
+        display: flex;
+        flex-direction: column;
+        font-size: 6em;
+        margin: 0;
+        line-height: 80px;
+    
+    }
+    p {
+        max-width: 35em;
+        font-size: 30px;
+        padding-top: 1.5em
+    }
+    div.divcoantainer {
+        display: flex;
+        flex-direction: row;
+        gap: 4em;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+        div.divcontent {
+            background-color: rgba(0, 255, 0, 0.5);
+            color: #fff;
+            border: 1px solid whitesmoke;
+            box-shadow: 4px 4px 15px rgb(144, 239, 42);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 2rem;
+            
+            
+            .iconAndTitle {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: 1rem;
+                font-weight: 500;
+                font-size: 18px;
+                .icon {
+                    color:  #4caf50;
+                    cursor: pointer;
+                    
+
+                }
+            }
+            p {
+                padding-left: 2.4rem;
+                font-size: 15px;
+                margin: 0;
+                margin-bottom: 2px;
+            }
+           
+        }
+    }
+
+   
+}
+    .aboutBizFusionContent {
+        display: flex ;
+        flex-direction: row;
+        gap: 1em;
+        background-color: white;//Change
+        height: fit-content;
+
+        .aboutFreelanceImage {
+            width: 50%;
+            img {
+                width: 80%;
+                height: 390px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+        .aboutFreelancerInfo {
+            width: 50%;
+            padding: 0 10px;
+
+            section.contentPart {
+
+                h3 {
+                    color: #4caf50;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                h2 {
+                    font-size: 2em;
+                    margin: 5px 0;
+                }
+                p {
+                    font-size: 0.8em;
+                    color: gray; 
+                    font-weight: 400;
+                }
+            }
+            .bottomBorder {
+                width: 70%;
+                border-bottom: 1px groove gray;
+                border-radius: 10px;
+                margin: 2em 0 1em 0;
+            }
+            .siteVotes {
+                display: flex;
+                flex-direction: row; 
+                align-items: center; 
+                div {
+                    border-radius: 5px; 
+                    width: 20%; 
+                    display: flex;
+                    flex-direction: column; 
+
+                    .titleVote{
+                        color: gray;
+                        font-size: 10px; 
+                    }
+                    .titleResult {
+                        color: black; 
+                        font-size: 25px; 
+                        font-weight: 700;
+                    }
+                }
+            }
+            
+            
+        }
+}

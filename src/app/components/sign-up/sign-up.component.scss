@@ -1,4 +1,8 @@
-    /* Container holds left and right panels */
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  /* Container holds left and right panels */
   .container {
     display: flex;
     min-height: 100vh;

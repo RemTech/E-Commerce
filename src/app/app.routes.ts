@@ -30,7 +30,8 @@ export const routes: Routes = [
 
     {
         path: 'aboutus',
-        title: 'BizFusion | About Us',
+        title: 'About Us',
+
         loadComponent: () => import('./components/about/about.component').then(a=>a.AboutComponent)
     },
     {
